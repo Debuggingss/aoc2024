@@ -15,6 +15,7 @@ val days = mapOf(
     9 to Day9,
     10 to Day10,
     11 to Day11,
+    12 to Day12,
 )
 
 fun main() {

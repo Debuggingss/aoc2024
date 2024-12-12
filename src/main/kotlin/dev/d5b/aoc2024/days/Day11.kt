@@ -41,7 +41,7 @@ object Day11 : Day(11) {
             .map { it.toLong() }
 
         val cache = mutableMapOf<Pair<Long, Int>, Long>()
-        val result = stones.sumOf { calculateStone(it, 100, cache) }
+        val result = stones.sumOf { calculateStone(it, 75, cache) }
 
         println("\nAnswer: $result")
     }
