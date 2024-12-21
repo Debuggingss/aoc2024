@@ -244,16 +244,15 @@ object Day15 : Day(15) {
     }
 
     private fun mapBoxesY(grid: List<List<String>>, start: Pos, direction: Direction): List<Pos>? {
-        if (grid[start.y][start.x] == WALL) return null
+        val cell = grid[start.y][start.x]
+
+        if (cell == WALL) return null
+        if (cell == EMPTY) return emptyList()
 
         val boxes = mutableListOf<Pos>()
 
-        val cell = grid[start.y][start.x]
-
-        if (cell == EMPTY) return emptyList()
-
-        boxes.add(Pos(start.x, start.y))
-        boxes.add(Pos(start.x, start.y).offset(if (cell == BOX_R) Pos(-1, 0) else Pos(1, 0)))
+        boxes.add(start)
+        boxes.add(start.offset(if (cell == BOX_R) Pos(-1, 0) else Pos(1, 0)))
 
         val above = mapBoxesY(
             grid,
